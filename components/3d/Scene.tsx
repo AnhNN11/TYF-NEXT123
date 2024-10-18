@@ -34,7 +34,7 @@ export default function Scene() {
       </Canvas>
 
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-        <Chatbot onClose={() => setShowModal(false)} />
+        <Chatbot />
       </Modal>
     </>
   );
