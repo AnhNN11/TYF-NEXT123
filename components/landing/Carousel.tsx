@@ -34,12 +34,12 @@ export const HeroSection = () => {
           </p>
 
           <div className="space-y-4 md:space-y-0 md:space-x-4">
-            <Link href="/login">
-              <Button className="w-5/6 md:w-1/4 font-bold group/arrow">
-                Bắt đầu
-                <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+         <Link href="https://large-goldfish-7.accounts.dev/sign-in?redirect_url=https%3A%2F%2Ftyf-next-123.vercel.app%2Fthinking" passHref>
+      <Button className="w-5/6 md:w-1/4 font-bold group/arrow">
+        Bắt đầu
+        <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
+      </Button>
+    </Link>
 
             <Button
               asChild
