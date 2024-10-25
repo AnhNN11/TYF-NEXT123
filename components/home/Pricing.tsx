@@ -38,7 +38,7 @@ const plans: PlanProps[] = [
     popular: 1,
     price: 200,
     description: "Đặt theo tháng để hưởng được nhiều lợi ích hơn",
-    buttonText: "Bắt đầu",
+    buttonText: "Giá Theo Tháng",
     benefitList: [
       " Phương Pháp Bank Street",
       "Hoạt động sáng tạo",
@@ -50,8 +50,8 @@ const plans: PlanProps[] = [
     popular: 0,
     price: 120,
     description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Liên Lạc",
+      "Đồng hành lâu dài cùng bé để phát triển toàn diện",
+    buttonText: "Giá Theo Năm",
     benefitList: ["12 buổi / tháng", "Cố định", "Đảm bảo"],
   },
 ];
@@ -77,7 +77,7 @@ export const PricingSection = () => {
             <Card
               key={title}
               className={
-                popular === PopularPlan?.YES
+                popular === PopularPlan.YES
                   ? "drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]"
                   : ""
               }
@@ -90,9 +90,15 @@ export const PricingSection = () => {
                 </CardDescription>
 
                 <div>
-                  <span className="text-3xl font-bold">${price}</span>
+                  <span className="text-3xl font-bold">
+                    {title === "Giờ"
+                      ? `${price.toLocaleString()} VNĐ`
+                      : `$${price}`}
+                  </span>
 
-                  <span className="text-muted-foreground"> /month</span>
+                  <span className="text-muted-foreground">
+                    {title === "Giờ" ? " /hour" : " /month"}
+                  </span>
                 </div>
               </CardHeader>
 
@@ -110,7 +116,7 @@ export const PricingSection = () => {
               <CardFooter>
                 <Button
                   variant={
-                    popular === PopularPlan?.YES ? "default" : "secondary"
+                    popular === PopularPlan.YES ? "default" : "secondary"
                   }
                   className="w-full"
                 >
