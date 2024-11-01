@@ -21,38 +21,41 @@ interface PlanProps {
   description: string;
   buttonText: string;
   benefitList: string[];
+  timePeriod: string;
 }
 
 const plans: PlanProps[] = [
   {
     title: "Giờ",
     popular: 0,
-    price: 49000,
+    price: 99000,
     description:
       "Đặt người đồng hành ngay trong ngày với thời gian không giới hạn",
     buttonText: "Giá Theo Giờ",
     benefitList: ["Nhanh Gọn", "Tiện lợi", "Được cộng dồng trợ"],
+    timePeriod: "giờ",
   },
   {
-    title: "Tháng",
+    title: "Trải nghiệm",
     popular: 1,
-    price: 200,
-    description: "Đặt theo tháng để hưởng được nhiều lợi ích hơn",
-    buttonText: "Giá Theo Tháng",
+    price: 700000,
+    description: "Trải nghiệm 1 giờ hội hoạ cho bé cùng TYF Miễn phí",
+    buttonText: "Bắt đầu",
     benefitList: [
-      " Phương Pháp Bank Street",
+      "Phương Pháp Bank Street",
       "Hoạt động sáng tạo",
       "Phát triển tư duy",
     ],
+    timePeriod: "ngày",
   },
   {
-    title: "Năm",
+    title: "Tháng",
     popular: 0,
-    price: 120,
-    description:
-      "Đồng hành lâu dài cùng bé để phát triển toàn diện",
-    buttonText: "Giá Theo Năm",
+    price: 4000000,
+    description: "Liên hệ để chúng tôi để có thể tư vấn tốt hơn .",
+    buttonText: "Liên Lạc",
     benefitList: ["12 buổi / tháng", "Cố định", "Đảm bảo"],
+    timePeriod: "tháng",
   },
 ];
 
@@ -73,11 +76,19 @@ export const PricingSection = () => {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4">
         {plans.map(
-          ({ title, popular, price, description, buttonText, benefitList }) => (
+          ({
+            title,
+            popular,
+            price,
+            description,
+            buttonText,
+            benefitList,
+            timePeriod,
+          }) => (
             <Card
               key={title}
               className={
-                popular === PopularPlan.YES
+                popular === PopularPlan?.YES
                   ? "drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]"
                   : ""
               }
@@ -91,14 +102,9 @@ export const PricingSection = () => {
 
                 <div>
                   <span className="text-3xl font-bold">
-                    {title === "Giờ"
-                      ? `${price.toLocaleString()} VNĐ`
-                      : `$${price}`}
+                    {price.toLocaleString("vi-VN")}₫
                   </span>
-
-                  <span className="text-muted-foreground">
-                    {title === "Giờ" ? " /hour" : " /month"}
-                  </span>
+                  <span className="text-muted-foreground"> /{timePeriod}</span>
                 </div>
               </CardHeader>
 
@@ -116,7 +122,7 @@ export const PricingSection = () => {
               <CardFooter>
                 <Button
                   variant={
-                    popular === PopularPlan.YES ? "default" : "secondary"
+                    popular === PopularPlan?.YES ? "default" : "secondary"
                   }
                   className="w-full"
                 >
@@ -130,4 +136,5 @@ export const PricingSection = () => {
     </section>
   );
 };
+
 export default PricingSection;

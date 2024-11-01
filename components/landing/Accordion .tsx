@@ -38,7 +38,7 @@ const FAQList: FAQProps[] = [
 
 export const FAQSection = () => {
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row">
       <section id="faq" className="container md:w-[700px] py-24 sm:py-32">
         <div className="text-center mb-8">
           <h2 className="text-lg text-primary text-center mb-2 tracking-wider">
@@ -62,7 +62,7 @@ export const FAQSection = () => {
           ))}
         </Accordion>
       </section>
-      <div className="">
+      <div className="flex justify-center">
         <Scene />
       </div>
     </div>
